@@ -15,7 +15,7 @@ A modern, open-source web application that recommends the best equipment for eac
 *   **🛡️ 8 Playable Classes**: Tailored recommendations for Tank, Bard, Cleric, Mage, Fighter, Ranger, Rogue, and Summoner.
 *   **🧠 Intelligent Algorithm**: Calculates equipment scores based on:
     *   Class Stat Priorities (e.g., Int > Wis > Dex for Mages)
-    *   Item Rarity (Legendary, Epic, etc.)
+    *   Item Rarity (Legendary, Epic, etc)
     *   Item Level
 *   **⚡ Real-Time Data**: Integrates directly with the [AOC Planner API](https://www.aoc-planner.gg/) for up-to-date item stats.
 *   **🌍 Internationalization (i18n)**: Full support for English and Spanish (Español).
