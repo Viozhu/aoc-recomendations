@@ -1,4 +1,4 @@
-import type { ClassData, ClassesMap } from '../types';
+import type { ClassesMap } from '../types';
 
 export const CLASSES: ClassesMap = {
     TANK: {
