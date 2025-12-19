@@ -3,10 +3,6 @@
         {
             "source": "/api/:path*",
             "destination": "https://www.aoc-planner.gg/api/:path*"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
         }
     ]
 }
