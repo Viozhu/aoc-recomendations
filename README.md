@@ -1,173 +1,139 @@
 # Ashes of Creation - Equipment Recommender
 
-Una aplicación web moderna que recomienda el mejor equipo para cada clase en Ashes of Creation, basándose en las prioridades de estadísticas de cada clase.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-## 🎮 Características
+A modern, open-source web application that recommends the best equipment for each class in **Ashes of Creation**, based on class-specific stat priorities and real-time data.
 
-- **8 Clases Jugables**: Tank, Bardo, Clérigo, Mago, Luchador, Guardabosques, Pícaro e Invocador
-- **Recomendaciones Inteligentes**: Algoritmo que analiza stats y calcula scores basados en prioridades de clase
-- **Datos en Tiempo Real**: Integración con la API de AOC Planner
-- **UI Moderna**: Diseño oscuro gaming con Tailwind CSS
-- **TypeScript**: Type-safe para mejor mantenibilidad
-- **Caché Inteligente**: TanStack Query para optimizar requests
+![Application Preview](https://github.com/Viozhu/aoc-recomendations/assets/placeholder.png)
 
-## 🚀 Tecnologías
+## 🌟 Features
 
-- **React 18** - Framework UI
-- **TypeScript** - Type safety
-- **Vite** - Build tool ultra-rápido
-- **TanStack Query** - Data fetching y caché
-- **Tailwind CSS** - Utility-first CSS framework
-- **pnpm** - Package manager eficiente
+*   **🛡️ 8 Playable Classes**: Tailored recommendations for Tank, Bard, Cleric, Mage, Fighter, Ranger, Rogue, and Summoner.
+*   **🧠 Intelligent Algorithm**: Calculates equipment scores based on:
+    *   Class Stat Priorities (e.g., Int > Wis > Dex for Mages)
+    *   Item Rarity (Legendary, Epic, etc.)
+    *   Item Level
+*   **⚡ Real-Time Data**: Integrates directly with the [AOC Planner API](https://www.aoc-planner.gg/) for up-to-date item stats.
+*   **🌍 Internationalization (i18n)**: Full support for English and Spanish (Español).
+*   **🎨 Floating Quick Menu**:
+    *   Visual "Stat Priorities" breakdown for the selected class.
+    *   Quick navigation to any equipment slot (Helmet, Chest, Weapons, etc.) with smooth scrolling.
+*   **🖼️ Visual Richness**: Displays equipment icons with rarity-colored borders and detailed tooltips for hidden stats.
+*   **📱 Responsive Design**: Optimized for both desktop and mobile devices using a dark gaming aesthetic.
 
-## 📦 Instalación
+## 🚀 Technologies
 
-### Prerequisitos
+*   **[React 18](https://react.dev/)**: Core UI framework.
+*   **[TypeScript](https://www.typescriptlang.org/)**: For static type safety and better developer experience.
+*   **[Vite](https://vitejs.dev/)**: Ultra-fast build tool and development server.
+*   **[TanStack Query](https://tanstack.com/query/latest)**: Powerful data fetching and caching.
+*   **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework for custom design.
+*   **[i18next](https://www.i18next.com/)**: Internationalization framework.
+*   **[pnpm](https://pnpm.io/)**: Efficient package manager.
 
-- Node.js 18+ 
-- pnpm (si no lo tienes: `npm install -g pnpm`)
+## 📦 Getting Started
 
-### Pasos
+### Prerequisites
+
+*   **Node.js**: Version 18 or higher.
+*   **pnpm**: Recommended package manager (`npm install -g pnpm`).
+
+### Installation
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Viozhu/aoc-recomendations.git
+    cd aoc-recomendations
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    pnpm install
+    ```
+
+3.  **Start development server**:
+    ```bash
+    pnpm dev
+    ```
+
+4.  **Open in browser**:
+    Navigate to `http://localhost:5173`.
+
+## 🏗️ Building for Production
+
+To create an optimized production build:
 
 ```bash
-# Clonar el repositorio (o navegar al directorio)
-cd aoc-equipment-recommender
-
-# Instalar dependencias con pnpm
-pnpm install
-
-# Iniciar servidor de desarrollo
-pnpm dev
-
-# Abrir en el navegador
-# http://localhost:5173
-```
-
-## 🏗️ Build para Producción
-
-```bash
-# Compilar TypeScript y crear build optimizado
+# Build the project
 pnpm build
 
-# Preview del build de producción
+# Preview the production build locally
 pnpm preview
 ```
 
-## 📁 Estructura del Proyecto
+## 📂 Project Structure
 
 ```
 aoc-equipment-recommender/
 ├── src/
-│   ├── components/          # Componentes React
-│   │   ├── ClassSelector.tsx
-│   │   ├── EquipmentCard.tsx
-│   │   ├── StatPriority.tsx
-│   │   └── RecommendationList.tsx
+│   ├── components/          # React components (EquipmentCard, RecommendationList, etc.)
 │   ├── data/
-│   │   └── classData.ts     # Datos de las 8 clases
+│   │   └── classData.ts     # Configuration for the 8 classes and their stat weights
 │   ├── hooks/
-│   │   └── useEquipment.ts  # TanStack Query hooks
-│   ├── types/
-│   │   └── index.ts         # TypeScript types
+│   │   └── useEquipment.ts  # Custom hooks for fetching API data
+│   ├── i18n/                # Translation files and configuration
+│   ├── types/               # TypeScript interfaces
 │   ├── utils/
-│   │   └── recommendationEngine.ts  # Algoritmo de recomendación
-│   ├── App.tsx              # Componente principal
-│   ├── main.tsx             # Entry point
-│   └── index.css            # Estilos globales Tailwind
-├── index.html
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-├── postcss.config.js
-└── vite.config.ts
+│   │   └── recommendationEngine.ts  # Core logic for scoring items
+│   └── App.tsx              # Main entry point
+├── public/                  # Static assets
+└── ...config files
 ```
 
-## 🎯 Cómo Funciona
+## 🛠️ Configuration
 
-### 1. Selección de Clase
-El usuario selecciona una de las 8 clases disponibles. Cada clase tiene prioridades de stats definidas:
+### Modifying Class Priorities
 
-- **Tank**: Constitution > Mentality > Strength
-- **Mage**: Intelligence > Wisdom > Dexterity
-- **Rogue**: Dexterity > Strength > Mentality
-- etc.
-
-### 2. Algoritmo de Recomendación
-El sistema:
-1. Obtiene todos los items del API de AOC Planner
-2. Parsea el `statBlock` JSON de cada item
-3. Calcula un score basado en:
-   - Prioridades de stats de la clase
-   - Rareza del item (Legendary > Epic > Rare, etc.)
-   - Nivel del item
-4. Ordena y muestra los top 3 items por slot
-
-### 3. Visualización
-- Cards de equipo con stats detallados
-- Colores por rareza (Legendary = dorado, Epic = naranja, etc.)
-- Barras de progreso para prioridades de stats
-- Responsive design para móvil y desktop
-
-## 🔧 Personalización
-
-### Modificar Prioridades de Clase
-
-Edita `src/data/classData.ts`:
+You can adjust how the recommender values different stats for each class by editing `src/data/classData.ts`:
 
 ```typescript
-TANK: {
-  statPriorities: [
-    { stat: 'Constitution', priority: 1, ... },
-    { stat: 'Mentality', priority: 2, ... },
-    // Añadir o modificar prioridades
-  ]
+// Example: Adjusting Tank priorities
+tank: {
+    statPriorities: [
+        { stat: 'Constitution', priority: 1, ... },
+        { stat: 'Mentality', priority: 2, ... },
+        // ...
+    ]
 }
 ```
 
-### Ajustar Algoritmo de Score
+### Adjusting Scoring Algorithm
 
-Edita `src/utils/recommendationEngine.ts`:
+The scoring logic allows for tweaking rarity weights and multipliers in `src/utils/recommendationEngine.ts`:
 
 ```typescript
-// Modificar pesos de rareza
 const RARITY_WEIGHTS = {
-  'Legendary': 3.5,  // Cambiar multiplicador
-  // ...
-}
+    'Legendary': 3.5,
+    'Epic': 2.5,
+    // ...
+};
 ```
 
-## 📊 API
+## 🤝 Contributing
 
-Datos proporcionados por [AOC Planner](https://www.aoc-planner.gg/)
+Contributions are welcome! Whether it's reporting a bug, suggesting a feature, or submitting a pull request, we appreciate your help.
 
-Endpoint: `https://www.aoc-planner.gg/api/get_constants`
+Please read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before getting started.
 
-## 🎨 Tema y Estilos
+## 📝 License
 
-El proyecto usa Tailwind CSS con un tema personalizado:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- **Colores**: Paleta oscura gaming con acentos dorados
-- **Fuentes**: 
-  - Display: 'Cinzel' (títulos fantasy)
-  - Body: 'Inter' (texto legible)
-- **Animaciones**: Hover effects, transiciones suaves, loading spinners
+## 🙏 Acknowledgements
 
-## 🤝 Contribuir
-
-Las contribuciones son bienvenidas! Áreas de mejora:
-
-- [ ] Añadir filtros por nivel de item
-- [ ] Comparación de builds
-- [ ] Guardar builds favoritos
-- [ ] Modo claro/oscuro
-- [ ] Internacionalización (i18n)
-
-## 📝 Licencia
-
-MIT
-
-## 🙏 Créditos
-
-- Datos de equipo: [AOC Planner](https://www.aoc-planner.gg/)
-- Información de clases: Ashes of Creation Wiki
-# aoc-recomendations
+*   **[AOC Planner](https://www.aoc-planner.gg/)**: For providing the comprehensive equipment API and icons.
+*   **Ashes of Creation Community**: For the class data and stat theorycrafting.
