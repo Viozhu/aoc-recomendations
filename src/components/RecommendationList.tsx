@@ -64,14 +64,14 @@ export const RecommendationList: React.FC<RecommendationListProps> = ({
                     <div
                         id={`slot-${slot}`}
                         key={slot}
-                        className="bg-aoc-darker/60 border border-white/10 rounded-xl p-6"
+                        className="bg-aoc-darker/60 border border-white/10 rounded-xl p-4 md:p-6"
                     >
                         <h4 className="font-display text-xl font-semibold mb-4 text-aoc-gold pb-3 border-b-2 border-aoc-gold/20">
                             {t(SLOT_KEYS[slot] || slot)}
                         </h4>
                         <div className="flex gap-4 overflow-x-auto pb-2 snap-x [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-aoc-gold/20 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-aoc-gold/40">
                             {recommendations[slot].map((item, index) => (
-                                <div key={`${item.itemName}-${index}`} className="min-w-[320px] max-w-[320px] snap-start">
+                                <div key={`${item.itemName}-${index}`} className="min-w-[280px] w-[85vw] max-w-[320px] snap-start shrink-0">
                                     <EquipmentCard
                                         equipment={item}
                                         targetRarity={targetRarity}
