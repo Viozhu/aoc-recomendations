@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        @apply text-base;
+    }
+
+    body {
+        @apply font-body bg-aoc-dark text-white antialiased overflow-x-hidden;
+    }
+
+    /* Background Pattern */
+    body::before {
+        content: '';
+        @apply fixed inset-0 pointer-events-none -z-10;
+        background-image:
+            radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 99, 71, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 40% 20%, rgba(65, 105, 225, 0.03) 0%, transparent 50%);
+    }
+}
+
+@layer components {
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        @apply w-3;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-aoc-darker;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-md;
+        background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #FFA500 0%, #FF6347 100%);
+    }
+
+    /* Selection */
+    ::selection {
+        @apply bg-aoc-gold text-black;
+    }
+
+    /* Focus Styles */
+    :focus-visible {
+        @apply outline-2 outline-aoc-gold outline-offset-2;
+    }
+}
+
+@layer utilities {
+    .text-gradient-gold {
+        @apply bg-gradient-to-r from-aoc-gold via-aoc-orange to-aoc-red bg-clip-text text-transparent;
+    }
+
+    .glow-gold {
+        text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
